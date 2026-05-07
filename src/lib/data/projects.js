@@ -24,13 +24,6 @@ export const years = [
                 description: "Studio approfondito dei principi fondamentali della Costituzione della Repubblica Italiana: nascita, struttura e valori portanti dell'ordinamento democratico.",
                 topics: ["Principi fondamentali", "Diritti e doveri", "Assemblea Costituente", "Storia repubblicana"],
             },
-            {
-                id: "1-b",
-                title: "Cittadinanza Attiva",
-                category: "Partecipazione Civica",
-                description: "Il ruolo del cittadino nella vita democratica: dalla partecipazione al voto alla partecipazione nei processi decisionali locali e nazionali.",
-                topics: ["Voto e democrazia", "Enti locali", "Partecipazione giovanile", "Associazionismo"],
-            },
         ],
     },
     {
@@ -43,17 +36,10 @@ export const years = [
         projects: [
             {
                 id: "2-a",
-                title: "Agenda 2030 e Sviluppo Sostenibile",
-                category: "Sostenibilità",
-                description: "Analisi degli Obiettivi di Sviluppo Sostenibile delle Nazioni Unite: impatti locali e globali, responsabilità individuale e collettiva per un futuro equo.",
-                topics: ["SDGs", "Clima", "Giustizia sociale", "Economia verde"],
-            },
-            {
-                id: "2-b",
-                title: "Pandemia e Salute Pubblica",
-                category: "Salute e Società",
-                description: "Riflessione critica sull'esperienza pandemica da Covid-19: il rapporto tra scienza e politica, la solidarietà sociale e la gestione dell'emergenza sanitaria.",
-                topics: ["Sanità pubblica", "Comunicazione scientifica", "Solidarietà", "Governance"],
+                title: "Agende rosse",
+                category: "Legalità e antimafia",
+                description: "Percorso sulla cultura della legalità: storia e contrasto alla criminalità organizzata, il coraggio dei testimoni di giustizia e il ruolo della scuola.",
+                topics: ["Criminalità organizzata", "Testimoni di giustizia", "Falcone e Borsellino", "Educazione alla legalità"],
             },
         ],
     },
@@ -67,13 +53,6 @@ export const years = [
         projects: [
             {
                 id: "3-a",
-                title: "Legalità e Antimafia",
-                category: "Legalità",
-                description: "Percorso sulla cultura della legalità: storia e contrasto alla criminalità organizzata, il coraggio dei testimoni di giustizia e il ruolo della scuola.",
-                topics: ["Criminalità organizzata", "Testimoni di giustizia", "Falcone e Borsellino", "Educazione alla legalità"],
-            },
-            {
-                id: "3-b",
                 title: "Memoria e Shoah",
                 category: "Memoria Storica",
                 description: "Il dovere della memoria collettiva: studio della Shoah, delle leggi razziali in Italia e del percorso di costruzione di una coscienza civile europea post-bellica.",
@@ -86,15 +65,15 @@ export const years = [
         ordinal: "04",
         label: "Quarto Anno",
         period: "2024 — 2025",
-        theme: "Europa, diritto internazionale e globalizzazione",
+        theme: "Patente",
         color: "#4A2080",
         projects: [
             {
                 id: "4-a",
-                title: "Unione Europea e Istituzioni",
-                category: "Diritto Europeo",
-                description: "Funzionamento e storia dell'Unione Europea: istituzioni, valori fondanti, cittadinanza europea e il processo di integrazione dal Trattato di Roma ad oggi.",
-                topics: ["Trattati UE", "Parlamento Europeo", "Cittadinanza EU", "Euro e politica economica"],
+                title: "Quiz della patente",
+                category: "Patente",
+                description: "Quiz della patente: realizzazione del quiz per la patente in python",
+                topics: ["Patente B", "Programmazione", "Python", "TKinter"],
             },
             {
                 id: "4-b",

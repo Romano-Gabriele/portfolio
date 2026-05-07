@@ -16,38 +16,6 @@
                 <span class="topic-tag">{topic}</span>
             {/each}
         </div>
-
-        <div class="card-corner" aria-hidden="true">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <path
-                    d="M0 40 L40 0"
-                    stroke="currentColor"
-                    stroke-width="0.5"
-                    opacity="0.3"
-                />
-                <path
-                    d="M10 40 L40 10"
-                    stroke="currentColor"
-                    stroke-width="0.5"
-                    opacity="0.2"
-                />
-                <path
-                    d="M20 40 L40 20"
-                    stroke="currentColor"
-                    stroke-width="0.5"
-                    opacity="0.1"
-                />
-                <circle
-                    cx="38"
-                    cy="2"
-                    r="1.5"
-                    fill="currentColor"
-                    opacity="0.4"
-                />
-            </svg>
-        </div>
-
-        <div class="card-line"></div>
     </div>
 </article>
 
@@ -148,37 +116,5 @@
         color: var(--text-sec);
         border-color: rgba(196, 151, 58, 0.2);
         background: var(--gold-dim);
-    }
-
-    .card-corner {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: var(--gold);
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    .card:hover .card-corner {
-        opacity: 1;
-    }
-
-    .card-line {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0;
-        background: linear-gradient(
-            to right,
-            var(--accent, var(--gold)),
-            var(--gold-light)
-        );
-        transition: width 0.5s var(--ease-out);
-    }
-
-    .card:hover .card-line {
-        width: 100%;
     }
 </style>

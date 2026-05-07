@@ -26,8 +26,8 @@
     id="year-{year.id}"
     bind:this={sectionEl}
     class:visible
-    style="--accent: {year.accent}"
->
+    style="--accent: {year.color}">
+
     <div class="section-topline container">
         <div class="topline-left"></div>
         <span class="label topline-label">{year.period}</span>
@@ -42,7 +42,7 @@
             <div class="year-info">
                 <span class="label" style="color: var(--accent, var(--gold))">Anno Scolastico</span>
                 <h2 class="year-label">{year.label}</h2>
-                <p class="year-theme">{year.color}</p>
+                <p class="year-theme">{year.theme}</p>
                 <div class="year-divider"></div>
                 <div class="year-period">{year.period}</div>
             </div>
@@ -53,9 +53,8 @@
                 <div
                     class="card-wrapper"
                     style="--card-delay: {i * 150 + 200}ms"
-                    class:visible
-                >
-                    <ProjectCard {project} accent={year.accent} />
+                    class:visible>
+                    <ProjectCard {project} accent={year.color} />
                 </div>
             {/each}
         </div>
