@@ -3,18 +3,15 @@
     import { info } from "../data/projects.js";
 
     let mounted = $state(false);
-    let letters = "PORTFOLIO".split("");
 
     onMount(() => {
-        requestAnimationFrame(() => {
-            mounted = true;
-        });
+        requestAnimationFrame(() => { mounted = true; });
     });
 </script>
 
 <section id="hero">
     <div class="grid-bg" aria-hidden="true">
-        {#each { length: 12 } as _, i}
+        {#each { length: 12 } as _}
             <div class="grid-line"></div>
         {/each}
     </div>
@@ -29,15 +26,7 @@
             <span class="label">{info.class} · {info.school}</span>
         </div>
 
-        <h1 class="hero-title">
-            {#each letters as letter, i}
-                <span
-                    class="hero-letter"
-                    class:visible={mounted}
-                    style="--delay: {i * 60}ms">{letter}</span
-                >
-            {/each}
-        </h1>
+        <h1 class="hero-title" class:visible={mounted}>PORTFOLIO</h1>
 
         <div class="hero-subtitle-wrap" class:visible={mounted}>
             <div class="subtitle-line"></div>
@@ -153,26 +142,22 @@
         font-weight: 900;
         line-height: 0.88;
         letter-spacing: -0.02em;
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(237, 232, 220, 0.15);
-        display: flex;
-        gap: 0.01em;
+        color: rgba(237, 232, 220, 0.18);
+        -webkit-text-stroke: 1.5px rgba(237, 232, 220, 0.55);
+        text-shadow:
+            0 0 80px rgba(196, 151, 58, 0.15),
+            0 0 160px rgba(196, 151, 58, 0.08);
         user-select: none;
-    }
-
-    .hero-letter {
-        display: inline-block;
         opacity: 0;
-        transform: translateY(80px) skewY(6deg);
+        transform: translateY(60px);
         transition:
-            opacity 0.7s var(--ease-out),
-            transform 0.7s var(--ease-out);
-        transition-delay: var(--delay, 0ms);
+            opacity 0.9s var(--ease-out) 0.3s,
+            transform 0.9s var(--ease-out) 0.3s;
     }
 
-    .hero-letter.visible {
+    .hero-title.visible {
         opacity: 1;
-        transform: translateY(0) skewY(0);
+        transform: translateY(0);
     }
 
     .hero-subtitle-wrap {
