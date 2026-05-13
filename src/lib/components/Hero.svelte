@@ -35,7 +35,6 @@
         </div>
 
         <p class="hero-name" class:visible={mounted}>{info.name}</p>
-        <p class="hero-city" class:visible={mounted}>{info.city}</p>
 
         <div class="scroll-cue" class:visible={mounted}>
             <span class="label">Scorri per esplorare</span>
@@ -223,10 +222,6 @@
         color: var(--text-muted);
         opacity: 0;
         transition: opacity 0.7s var(--ease-out) 1s;
-    }
-
-    .hero-city.visible {
-        opacity: 1;
     }
 
     .scroll-cue {

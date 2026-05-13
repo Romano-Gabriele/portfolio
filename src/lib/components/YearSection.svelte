@@ -7,6 +7,29 @@
     let sectionEl = $state(null);
     let visible = $state(false);
 
+    // Raggruppa i progetti per il campo "group"
+    const projectBlocks = $derived(() => {
+        const blocks = [];
+        const seen = new Map();
+
+        for (const project of year.projects) {
+            if (project.group) {
+                if (!seen.has(project.group)) {
+                    seen.set(project.group, {
+                        type: "group",
+                        label: project.group,
+                        items: [],
+                    });
+                    blocks.push(seen.get(project.group));
+                }
+                seen.get(project.group).items.push(project);
+            } else {
+                blocks.push({ type: "single", items: [project] });
+            }
+        }
+        return blocks;
+    });
+
     onMount(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -15,7 +38,7 @@
                     observer.disconnect();
                 }
             },
-            { threshold: 0.12 },
+            { threshold: 0.08 },
         );
         observer.observe(sectionEl);
         return () => observer.disconnect();
@@ -26,38 +49,63 @@
     id="year-{year.id}"
     bind:this={sectionEl}
     class:visible
-    style="--accent: {year.color}">
-
-    <div class="section-topline container">
-        <div class="topline-left"></div>
-        <span class="label topline-label">{year.period}</span>
-        <div class="topline-right"></div>
-    </div>
-
-    <div class="section-body container">
-        <div class="section-meta">
-            <div class="year-number-wrap">
-                <span class="year-ordinal" aria-hidden="true">{year.ordinal}</span>
-            </div>
-            <div class="year-info">
-                <span class="label" style="color: var(--accent, var(--gold))">Anno Scolastico</span>
+    style="--accent: {year.color}"
+>
+    <!-- Header anno -->
+    <div class="year-header container">
+        <div class="year-header-left">
+            <span class="year-ordinal" aria-hidden="true">{year.ordinal}</span>
+            <div class="year-header-info">
+                <span class="label" style="color: var(--accent)"
+                    >Anno Scolastico · {year.period}</span
+                >
                 <h2 class="year-label">{year.label}</h2>
                 <p class="year-theme">{year.theme}</p>
-                <div class="year-divider"></div>
-                <div class="year-period">{year.period}</div>
             </div>
         </div>
+        <div class="year-header-line"></div>
+    </div>
 
-        <div class="section-cards">
-            {#each year.projects as project, i}
+    <!-- Progetti -->
+    <div class="year-projects container">
+        {#each projectBlocks() as block, blockIndex}
+            {#if block.type === "single"}
                 <div
-                    class="card-wrapper"
-                    style="--card-delay: {i * 150 + 200}ms"
-                    class:visible>
-                    <ProjectCard {project} accent={year.color} />
+                    class="project-wrapper"
+                    style="--card-delay: {blockIndex * 150 + 200}ms"
+                    class:visible
+                >
+                    <ProjectCard project={block.items[0]} accent={year.color} />
                 </div>
-            {/each}
-        </div>
+            {:else}
+                <!-- Gruppo di progetti correlati -->
+                <div
+                    class="group-wrapper"
+                    style="--card-delay: {blockIndex * 150 + 200}ms"
+                    class:visible
+                >
+                    <div class="group-header">
+                        <div class="group-header-line"></div>
+                        <span class="label group-label">{block.label}</span>
+                        <div class="group-header-line"></div>
+                    </div>
+
+                    <div class="group-cards">
+                        {#each block.items as project, i}
+                            <div
+                                class="project-wrapper"
+                                style="--card-delay: {blockIndex * 150 +
+                                    i * 120 +
+                                    200}ms"
+                                class:visible
+                            >
+                                <ProjectCard {project} accent={year.color} />
+                            </div>
+                        {/each}
+                    </div>
+                </div>
+            {/if}
+        {/each}
     </div>
 
     <div class="section-bottom container">
@@ -75,111 +123,69 @@
     section::before {
         content: "";
         position: absolute;
-        top: 50%;
+        top: 0;
         left: -200px;
-        width: 500px;
-        height: 500px;
+        width: 600px;
+        height: 100%;
         background: radial-gradient(
-            circle,
+            ellipse at left,
             var(--accent, var(--gold)) 0%,
-            transparent 70%
+            transparent 60%
         );
-        opacity: 0.04;
-        transform: translateY(-50%);
+        opacity: 0.03;
         pointer-events: none;
         transition: opacity 1s ease;
     }
 
     section.visible::before {
-        opacity: 0.07;
+        opacity: 0.06;
     }
 
-    .section-topline {
+    .year-header {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
         margin-bottom: 3rem;
         opacity: 0;
-        transform: scaleX(0.6);
+        transform: translateY(30px);
         transition:
             opacity 0.8s var(--ease-out),
             transform 0.8s var(--ease-out);
     }
 
-    section.visible .section-topline {
+    section.visible .year-header {
         opacity: 1;
-        transform: scaleX(1);
+        transform: translateY(0);
     }
 
-    .topline-left {
-        flex: 0 0 2rem;
-        height: 1px;
-        background: var(--accent, var(--gold));
-        opacity: 0.6;
-    }
-
-    .topline-label {
-        color: var(--text-muted);
-    }
-
-    .topline-right {
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(to right, var(--border), transparent);
-    }
-
-    .section-body {
-        display: grid;
-        grid-template-columns: 280px 1fr;
-        gap: clamp(2rem, 5vw, 6rem);
-        align-items: start;
-    }
-
-    .section-meta {
-        position: relative;
-        opacity: 0;
-        transform: translateX(-30px);
-        transition:
-            opacity 0.8s var(--ease-out) 0.1s,
-            transform 0.8s var(--ease-out) 0.1s;
-    }
-
-    section.visible .section-meta {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    .year-number-wrap {
-        position: absolute;
-        top: -1.5rem;
-        left: -1rem;
-        pointer-events: none;
-        user-select: none;
-        z-index: 0;
+    .year-header-left {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-shrink: 0;
     }
 
     .year-ordinal {
         font-family: var(--ff-display);
-        font-size: clamp(7rem, 12vw, 12rem);
+        font-size: clamp(4rem, 8vw, 8rem);
         font-weight: 900;
         line-height: 1;
         color: transparent;
-        -webkit-text-stroke: 1px rgba(237, 232, 220, 0.05);
+        -webkit-text-stroke: 1px var(--accent, var(--gold));
+        opacity: 0.25;
         letter-spacing: -0.04em;
+        user-select: none;
     }
 
-    .year-info {
-        position: relative;
-        z-index: 1;
-        padding-top: 0.5rem;
+    .year-header-info {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .year-label {
         font-family: var(--ff-display);
-        font-size: 1.8rem;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
         font-weight: 700;
         line-height: 1.1;
         color: var(--text);
@@ -190,32 +196,26 @@
         font-style: italic;
         font-size: 1rem;
         color: var(--text-sec);
-        line-height: 1.5;
     }
 
-    .year-divider {
-        width: 2.5rem;
+    .year-header-line {
+        flex: 1;
         height: 1px;
-        background: var(--accent, var(--gold));
-        opacity: 0.5;
-        margin: 0.25rem 0;
+        background: linear-gradient(
+            to right,
+            var(--accent, var(--gold)),
+            transparent
+        );
+        opacity: 0.2;
     }
 
-    .year-period {
-        font-family: var(--ff-mono);
-        font-size: 0.65rem;
-        letter-spacing: 0.2em;
-        color: var(--text-muted);
-        text-transform: uppercase;
-    }
-
-    .section-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .year-projects {
+        display: flex;
+        flex-direction: column;
         gap: 1.25rem;
     }
 
-    .card-wrapper {
+    .project-wrapper {
         opacity: 0;
         transform: translateY(40px);
         transition:
@@ -223,13 +223,70 @@
             transform 0.7s var(--ease-out) var(--card-delay, 0ms);
     }
 
-    .card-wrapper.visible {
+    .project-wrapper.visible {
         opacity: 1;
         transform: translateY(0);
     }
 
+    .group-wrapper {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+            opacity 0.7s var(--ease-out) var(--card-delay, 0ms),
+            transform 0.7s var(--ease-out) var(--card-delay, 0ms);
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid var(--border-card);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .group-wrapper.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .group-header {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1rem 2.5rem;
+        background: rgba(196, 151, 58, 0.05);
+        border-bottom: 1px solid var(--border-card);
+    }
+
+    .group-header-line {
+        flex: 1;
+        height: 1px;
+        background: var(--accent, var(--gold));
+        opacity: 0.2;
+    }
+
+    .group-label {
+        color: var(--accent, var(--gold));
+        font-size: 0.62rem;
+        white-space: nowrap;
+        opacity: 0.7;
+    }
+
+    .group-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .group-cards .project-wrapper + .project-wrapper {
+        border-top: 1px solid var(--border);
+    }
+
+    .group-cards :global(.card) {
+        border: none;
+        border-radius: 0;
+    }
+
     .section-bottom {
-        margin-top: 3rem;
+        margin-top: 4rem;
         opacity: 0;
         transition: opacity 0.8s ease 0.5s;
     }
@@ -250,16 +307,16 @@
     }
 
     @media (max-width: 900px) {
-        .section-body {
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
+        .year-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
         }
-        .year-number-wrap {
-            position: static;
-            margin-bottom: -3.5rem;
+        .year-header-line {
+            display: none;
         }
-        .year-ordinal {
-            font-size: 6rem;
+        .group-header {
+            padding: 0.75rem 1.5rem;
         }
     }
 </style>

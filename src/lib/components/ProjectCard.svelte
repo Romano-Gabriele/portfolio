@@ -3,38 +3,46 @@
 </script>
 
 <article class="card" style="--accent: {accent}">
-    <div class="card-inner">
-        <div class="card-header">
-            <span class="card-category label">{project.category}</span>
+    <div class="card-image">
+        <img src={project.image} alt={project.title} />
+        <div class="image-overlay"></div>
+    </div>
+
+    <div class="card-body">
+        <div class="card-left">
+            <div class="card-labels">
+                <span class="card-category label">{project.category}</span>
+            </div>
+            <h3 class="card-title">{project.title}</h3>
+            <p class="card-desc">{project.description}</p>
         </div>
 
-        <h3 class="card-title">{project.title}</h3>
-        <p class="card-desc">{project.description}</p>
-
-        <div class="card-topics">
-            {#each project.topics as topic}
-                <span class="topic-tag">{topic}</span>
-            {/each}
+        <div class="card-right">
+            <span class="topics-label label">Argomenti</span>
+            <ul class="card-topics">
+                {#each project.topics as topic, i}
+                    <li class="topic-item">
+                        <span class="topic-num"
+                            >{String(i + 1).padStart(2, "0")}</span
+                        >
+                        <span class="topic-text">{topic}</span>
+                    </li>
+                {/each}
+            </ul>
         </div>
     </div>
+
+    <div class="card-line"></div>
 </article>
 
 <style>
     .card {
         position: relative;
-        cursor: default;
-    }
-
-    .card-inner {
-        position: relative;
-        background: var(--bg-card);
+        display: grid;
+        grid-template-columns: 280px 1fr;
         border: 1px solid var(--border-card);
         border-radius: 2px;
-        padding: 2rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        background: var(--bg-card);
         overflow: hidden;
         transition:
             background 0.35s ease,
@@ -43,34 +51,87 @@
             box-shadow 0.35s ease;
     }
 
-    .card:hover .card-inner {
+    .card:hover {
         background: var(--bg-card-h);
-        border-color: rgba(196, 151, 58, 0.35);
-        transform: translateY(-4px);
-        box-shadow:
-            0 20px 60px rgba(0, 0, 0, 0.4),
-            0 0 0 1px rgba(196, 151, 58, 0.1) inset;
+        border-color: rgba(196, 151, 58, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
     }
 
-    .card-header {
+    .card-image {
+        position: relative;
+        overflow: hidden;
+        min-height: 220px;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+            transform 0.6s var(--ease-out),
+            filter 0.4s ease;
+        filter: saturate(0.7) brightness(0.85);
+    }
+
+    .card:hover .card-image img {
+        transform: scale(1.05);
+        filter: saturate(0.9) brightness(0.95);
+    }
+
+    .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to right,
+            transparent 60%,
+            var(--bg-card) 100%
+        );
+        transition: opacity 0.35s ease;
+    }
+
+    .card:hover .image-overlay {
+        background: linear-gradient(
+            to right,
+            transparent 50%,
+            var(--bg-card-h) 100%
+        );
+    }
+
+    .card-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 2rem 2.5rem;
+        align-items: center;
+    }
+
+    .card-left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        border-right: 1px solid var(--border);
+        padding-right: 2rem;
+    }
+
+    .card-labels {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .card-category {
         color: var(--accent, var(--gold));
-        opacity: 0.8;
+        opacity: 0.85;
         font-size: 0.6rem;
-        text-align: right;
     }
 
     .card-title {
         font-family: var(--ff-display);
-        font-size: 1.35rem;
-        font-weight: 600;
-        line-height: 1.25;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
         color: var(--text);
         transition: color 0.3s ease;
     }
@@ -82,39 +143,120 @@
     .card-desc {
         font-family: var(--ff-body);
         font-size: 0.95rem;
-        line-height: 1.65;
+        line-height: 1.7;
         color: var(--text-sec);
-        flex: 1;
+    }
+
+    .card-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .topics-label {
+        color: var(--text-muted);
+        font-size: 0.58rem;
     }
 
     .card-topics {
+        list-style: none;
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-top: auto;
-        padding-top: 0.5rem;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .topic-item {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--border);
+        transition: border-color 0.3s ease;
+    }
+
+    .topic-item:first-child {
         border-top: 1px solid var(--border);
     }
 
-    .topic-tag {
-        font-family: var(--ff-mono);
-        font-size: 0.58rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        background: rgba(237, 232, 220, 0.04);
-        border: 1px solid var(--border);
-        border-radius: 2px;
-        padding: 0.25rem 0.6rem;
-        transition:
-            color 0.3s ease,
-            border-color 0.3s ease,
-            background 0.3s ease;
+    .card:hover .topic-item {
+        border-color: rgba(196, 151, 58, 0.15);
     }
 
-    .card:hover .topic-tag {
+    .topic-num {
+        font-family: var(--ff-mono);
+        font-size: 0.58rem;
+        color: var(--accent, var(--gold));
+        opacity: 0.5;
+        flex-shrink: 0;
+        width: 1.5rem;
+    }
+
+    .topic-text {
+        font-family: var(--ff-body);
+        font-size: 1rem;
         color: var(--text-sec);
-        border-color: rgba(196, 151, 58, 0.2);
-        background: var(--gold-dim);
+        line-height: 1.3;
+        transition: color 0.3s ease;
+    }
+
+    .card:hover .topic-text {
+        color: var(--text);
+    }
+
+    .card-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background: linear-gradient(
+            to right,
+            var(--accent, var(--gold)),
+            var(--gold-light)
+        );
+        transition: width 0.5s var(--ease-out);
+        grid-column: 1 / -1;
+    }
+
+    .card:hover .card-line {
+        width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+        .card {
+            grid-template-columns: 220px 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            grid-template-columns: 1fr;
+        }
+
+        .card-image {
+            min-height: 200px;
+            max-height: 220px;
+        }
+
+        .image-overlay {
+            background: linear-gradient(
+                to bottom,
+                transparent 60%,
+                var(--bg-card) 100%
+            );
+        }
+
+        .card-body {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .card-left {
+            border-right: none;
+            padding-right: 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
     }
 </style>
