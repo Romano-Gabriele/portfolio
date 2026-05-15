@@ -2,7 +2,7 @@
     let { project, accent = "#C4973A" } = $props();
 </script>
 
-<article class="card" style="--accent: {accent}">
+<a href="/argomento/{project.id}" class="card" style="--accent: {accent}">
     <div class="card-image">
         <img src={project.image} alt={project.title} />
         <div class="image-overlay"></div>
@@ -22,9 +22,7 @@
             <ul class="card-topics">
                 {#each project.topics as topic, i}
                     <li class="topic-item">
-                        <span class="topic-num"
-                            >{String(i + 1).padStart(2, "0")}</span
-                        >
+                        <span class="topic-num">{String(i + 1).padStart(2, "0")}</span>
                         <span class="topic-text">{topic}</span>
                     </li>
                 {/each}
@@ -33,8 +31,7 @@
     </div>
 
     <div class="card-line"></div>
-</article>
-
+</a>
 <style>
     .card {
         position: relative;
@@ -42,6 +39,8 @@
         grid-template-columns: 280px 1fr;
         border: 1px solid var(--border-card);
         border-radius: 2px;
+        text-decoration: none;
+        cursor: pointer;
         background: var(--bg-card);
         overflow: hidden;
         transition:

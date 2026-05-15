@@ -14,12 +14,19 @@ export const years = [
         theme: "Le fondamenta della democrazia",
         projects: [
             {
-                id:"1-a",
+                id: "1-a",
                 title: "La Costituzione Italiana",
                 category: "Diritto costituzionale",
                 description: "Studio dei principi fondamentali della Costituzione della Repubblica Italiana: nascita, struttura e valori portanti dell'ordinamento democratico.",
                 topics: ["Principi fondamentali", "Diritti e doveri", "Assemblea Costituente", "Storia repubblicana"],
                 image: "/images/costituzione.jpg",
+                materials: [
+                    {
+                        type: "png",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/la_costituzione_italiana.drawio.png",
+                    },
+                ],
             },
         ],
     },
@@ -54,6 +61,18 @@ export const years = [
                 description: "Realizzazione di un programma in C in grado di calcolare il codice fiscale a partire dai dati anagrafici dell'utente.",
                 topics: ["Codice fiscale", "Linguaggio C"],
                 image: "/images/codice-fiscale.jpg",
+                materials: [
+                    {
+                        type: "progetto",
+                        title: "Calcolo del codice fiscale in C",
+                        file: "/materials/3-a/presentazione.pdf",
+                    },
+                    {
+                        type: "link",
+                        title: "Calcolo del codice fiscale in javascript",
+                        file: "/materials/3-a/approfondimento.pdf",
+                    },
+                ],
             },
             {
                 id: "3-b",
@@ -62,6 +81,13 @@ export const years = [
                 description: "Lettura e analisi de 'La mattanza' di Carlo Lucarelli: la narrativa come strumento di indagine civile sulla criminalità organizzata e sulla memoria delle vittime di mafia.",
                 topics: ["Criminalità organizzata", "Memoria delle vittime di mafia"],
                 image: "/images/mattanza.jpg",
+                materials: [
+                    {
+                        type: "pdf",
+                        title: "Approfondimento scritto",
+                        file: "/materials/3-b/la_mattanza_carlo_lucarelli.pdf",
+                    },
+                ],
             },
         ],
     },
@@ -79,6 +105,20 @@ export const years = [
                 description: "Realizzazione di un'applicazione per la simulazione del quiz della patente di guida in Python con interfaccia grafica.",
                 topics: ["Patente B", "Python", "TKinter", "Interfaccia grafica"],
                 image: "/images/quiz-patente.jpg",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
         ],
     },
@@ -96,6 +136,20 @@ export const years = [
                 description: "Analisi statistica della violenza di genere in Italia: dati, tendenze e strumenti legislativi di contrasto con focus sul Codice Rosso.",
                 topics: ["Analisi dati", "Codice Rosso", "1522", "Strumenti digitali"],
                 image: "/images/prigione-domestica.jpg",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
             {
                 id: "5-b",
@@ -104,6 +158,20 @@ export const years = [
                 description: "Realizzazione di un sito web dedicato alla sensibilizzazione sulla violenza di genere, con riferimento al numero antiviolenza 1522.",
                 topics: ["Sviluppo web", "Sensibilizzazione", "1522", "Comunicazione digitale"],
                 image: "/images/progetto-1522.jpg",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
             {
                 id: "5-c",
@@ -121,6 +189,20 @@ export const years = [
                 topics: ["Shoah", "Leggi razziali", "Giorno della Memoria", "Diritti umani"],
                 image: "/images/shoah.jpg",
                 group: "Memoria e Shoah",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
             {
                 id: "5-e",
@@ -130,6 +212,20 @@ export const years = [
                 topics: ["Zona grigia", "Vergogna del sopravvissuto", "Se questo è un uomo", "Testimonianza"],
                 image: "/images/primo-levi.jpg",
                 group: "Memoria e Shoah",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
             {
                 id: "5-f",
@@ -139,6 +235,20 @@ export const years = [
                 topics: ["Aktion T4", "Lebensborn", "Eugenetica nazista", "Crimini contro l'umanità"],
                 image: "/images/operazioni-naziste.jpg",
                 group: "Memoria e Shoah",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
             {
                 id: "5-g",
@@ -147,6 +257,20 @@ export const years = [
                 description: "Studio approfondito dei principi fondamentali della Costituzione della Repubblica Italiana: nascita, struttura e valori portanti dell'ordinamento democratico.",
                 topics: ["Principi fondamentali", "Diritti e doveri", "Assemblea Costituente", "Storia repubblicana"],
                 image: "/images/costituzione.jpg",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
             {
                 id: "5-h",
@@ -155,6 +279,20 @@ export const years = [
                 description: "Il '68 come punto di svolta nella storia civile e politica italiana ed europea: le rivendicazioni studentesche, il femminismo, i diritti civili e il loro impatto duraturo sulla democrazia.",
                 topics: ["Contestazione studentesca", "Diritti civili", "Femminismo", "Riforma sociale"],
                 image: "/images/sessantotto.jpg",
+                materials: [
+                    {
+                        type: "slides",
+                        title: "Presentazione — I principi fondamentali",
+                        file: "/materials/1-a/presentazione.pdf",
+                        date: "Ottobre 2021",
+                    },
+                    {
+                        type: "doc",
+                        title: "Approfondimento scritto",
+                        file: "/materials/1-a/approfondimento.pdf",
+                        date: "Novembre 2021",
+                    },
+                ],
             },
         ],
     },
