@@ -1,10 +1,11 @@
 <script>
+    import { base } from '$app/paths';
     let { project, accent = "#C4973A" } = $props();
 </script>
 
-<a href="/argomento/{project.id}" class="card" style="--accent: {accent}">
+<a href="{base}/argomento/{project.id}" class="card" style="--accent: {accent}">
     <div class="card-image">
-        <img src={project.image} alt={project.title} />
+        <img src="{base}{project.image}" alt={project.title} />
         <div class="image-overlay"></div>
     </div>
 

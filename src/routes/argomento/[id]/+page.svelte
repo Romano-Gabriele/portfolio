@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths';
     import Navbar from "$lib/components/Navbar.svelte";
     import Footer from "$lib/components/Footer.svelte";
     
@@ -8,14 +9,14 @@
 
 <Navbar scrollY={100} /> <main class="container">
     <header class="project-header">
-        <a href="/" class="back-link label">← Torna alla Home</a>
+        <a href="{base}/" class="back-link label">← Torna alla Home</a>
         <span class="label">{project.category}</span>
         <h1>{project.title}</h1>
     </header>
 
     <div class="content-grid">
         <aside class="info">
-            <img src={project.image} alt={project.title} />
+            <img src="{base}{project.image}" alt={project.title} />
             
             {#if project.materials}
                 <div class="materials">
