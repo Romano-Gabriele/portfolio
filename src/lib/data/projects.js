@@ -70,7 +70,7 @@ export const years = [
                     {
                         type: "link",
                         title: "Calcolo del codice fiscale in javascript",
-                        file: "/materials/3-a/approfondimento.pdf",
+                        file: "https://romano-gabriele.github.io/codice_fiscale_javascript/",
                     },
                 ],
             },
@@ -96,7 +96,7 @@ export const years = [
         ordinal: "04",
         label: "Quarto Anno",
         period: "2024 — 2025",
-        theme: "Patente",
+        theme: "Progetti Python",
         projects: [
             {
                 id: "4-a",
@@ -107,16 +107,24 @@ export const years = [
                 image: "/images/quiz-patente.jpg",
                 materials: [
                     {
-                        type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
+                        type: "progetto",
+                        title: "Quiz patente in python",
+                        file: "/materials/4-a/quiz_patente.pdf",
                     },
+                ],
+            },
+            {
+                id: "4-b",
+                title: "Aviator",
+                category: "Informatica Applicata",
+                description: "Realizzazione di un videogioco in Python con interfaccia grafica.",
+                topics: ["Aviator", "Python", "PyGame", "Interfaccia grafica"],
+                image: "/images/aviator.jpg",
+                materials: [
                     {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        type: "progetto",
+                        title: "Aviator",
+                        file: "/materials/4-b/aviator.pdf",
                     },
                 ],
             },
@@ -138,16 +146,9 @@ export const years = [
                 image: "/images/prigione-domestica.jpg",
                 materials: [
                     {
-                        type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
-                    },
-                    {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        type: "pdf",
+                        title: "La prigione domestica",
+                        file: "/materials/5-a/la_prigione_domestica_Romano_Rossi.pdf",
                     },
                 ],
             },
@@ -165,12 +166,6 @@ export const years = [
                         file: "/materials/1-a/presentazione.pdf",
                         date: "Ottobre 2021",
                     },
-                    {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
-                    },
                 ],
             },
             {
@@ -183,24 +178,22 @@ export const years = [
             },
             {
                 id: "5-d",
-                title: "Memoria e Shoah",
+                title: "Lager nazisti",
                 category: "Memoria Storica",
                 description: "Il dovere della memoria collettiva: studio della Shoah, delle leggi razziali in Italia e del percorso di costruzione di una coscienza civile europea post-bellica.",
-                topics: ["Shoah", "Leggi razziali", "Giorno della Memoria", "Diritti umani"],
-                image: "/images/shoah.jpg",
+                topics: ["Lager nazisti", "Leggi razziali", "Shoah", "Diritti umani"],
+                image: "/images/lager_nazista.jpg",
                 group: "Memoria e Shoah",
                 materials: [
                     {
                         type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
+                        title: "Il sistema dei lager nazisti",
+                        file: "/materials/5-d/lager_nazisti.pptx.pdf",
                     },
                     {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        type: "img",
+                        title: "Classificazione e geografia dei lager",
+                        file: "/materials/5-d/classificazione_e_geografia_lager.png",
                     },
                 ],
             },
@@ -215,15 +208,18 @@ export const years = [
                 materials: [
                     {
                         type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
+                        title: "Primo Levi",
+                        file: "/materials/5-e/primo_levi.pptx.pdf",
                     },
                     {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        type: "slides",
+                        title: "La vergogna e la zona grigia",
+                        file: "/materials/5-e/vergogna_e_zona_grigia.pptx.pdf",
+                    },
+                    {
+                        type: "pdf",
+                        title: "La vergogna",
+                        file: "/materials/5-e/la_vergogna.pdf",
                     },
                 ],
             },
@@ -238,15 +234,13 @@ export const years = [
                 materials: [
                     {
                         type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
+                        title: "Operazione Aktion T4",
+                        file: "/materials/5-f/operazione_t4.pptx.pdf",
                     },
                     {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        type: "png",
+                        title: "Progetto Lebensborn",
+                        file: "/materials/5-f/progetto_lebensborn.png",
                     },
                 ],
             },
@@ -260,15 +254,8 @@ export const years = [
                 materials: [
                     {
                         type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
-                    },
-                    {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        title: "La Costituzione italiana",
+                        file: "/materials/5-g/costituzione.pptx.pdf",
                     },
                 ],
             },
@@ -282,15 +269,8 @@ export const years = [
                 materials: [
                     {
                         type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
-                    },
-                    {
-                        type: "doc",
-                        title: "Approfondimento scritto",
-                        file: "/materials/1-a/approfondimento.pdf",
-                        date: "Novembre 2021",
+                        title: "Il '68 in Italia",
+                        file: "/materials/5-h/sessantotto.pptx.pdf",
                     },
                 ],
             },
