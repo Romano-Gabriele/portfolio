@@ -67,11 +67,11 @@ export const years = [
                         title: "Calcolo del codice fiscale in C",
                         file: "/materials/3-a/presentazione.pdf",
                     },
-                    {
-                        type: "link",
-                        title: "Calcolo del codice fiscale in javascript",
-                        file: "https://romano-gabriele.github.io/codice_fiscale_javascript/",
-                    },
+                    // {
+                    //     type: "link",
+                    //     title: "Calcolo del codice fiscale in javascript",
+                    //     file: "https://romano-gabriele.github.io/codice_fiscale_javascript/",
+                    // },
                 ],
             },
             {

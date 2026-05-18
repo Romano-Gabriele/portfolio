@@ -1,5 +1,5 @@
 <script>
-    import { base } from '$app/paths';
+ import { base } from '$app/paths';
     import Navbar from "$lib/components/Navbar.svelte";
     import Footer from "$lib/components/Footer.svelte";
     
@@ -22,7 +22,7 @@
                 <div class="materials">
                     <h3 class="label">Materiali Allegati</h3>
                     {#each project.materials as material}
-                        <a href={material.file} download class="material-card">
+                        <a href="{base}{material.file}" download class="material-card">
                             <span class="type">{material.type}</span>
                             <span class="title">{material.title}</span>
                         </a>
