@@ -274,6 +274,38 @@ export const years = [
                     },
                 ],
             },
+            {
+                id: "5-i",
+                title: "Water and Soil Pollution",
+                category: "Educazione Civica (English)",
+                description: "An analysis of water and soil pollution, exploring its main causes, environmental consequences, and the possible measures for preventing it.",
+                image: "/images/water-pollution.png",
+                materials: []
+            },
+            {
+                id: "5-j",
+                title: "Social and Ethical Problems of the Internet",
+                category: "Educazione Civica (English)",
+                description: "A critical reflection on the social impact and ethical implications of the Internet in our modern, hyper-connected society.",
+                image: "/images/social-ethical-internet-problems.jpg",
+                materials: []
+            },
+            {
+                id: "5-k",
+                title: "Online Dangers and Cybersecurity",
+                category: "Educazione Civica (English)",
+                description: "An overview of the main online threats and the best practices on how to navigate the web safely and responsibly.",
+                image: "/images/online-dangers.png",
+                materials: []
+            },
+            {
+                id: "5-l",
+                title: "Artificial Intelligence: Pros and Cons",
+                category: "Educazione Civica (English)",
+                description: "An evaluation of the advantages and disadvantages of Artificial Intelligence, considering its impact on work, ethics, and daily life.",
+                image: "/images/artificial-intelligence.jpg",
+                materials: []
+            }
         ],
     },
 ];
