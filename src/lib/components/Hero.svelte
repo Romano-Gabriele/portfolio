@@ -21,7 +21,7 @@
 
     <div class="hero-content container">
         <div class="hero-label" class:visible={mounted}>
-            <span class="label">Esame di Stato · {info.examYear}</span>
+            <span class="label">Esame di Maturità · {info.examYear}</span>
             <span class="dash" aria-hidden="true"></span>
             <span class="label">{info.class} · {info.school}</span>
         </div>

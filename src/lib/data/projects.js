@@ -65,7 +65,7 @@ export const years = [
                     {
                         type: "progetto",
                         title: "Calcolo del codice fiscale in C",
-                        file: "/materials/3-a/presentazione.pdf",
+                        file: "https://github.com/Romano-Gabriele/codice_fiscale",
                     },
                     // {
                     //     type: "link",
@@ -109,7 +109,7 @@ export const years = [
                     {
                         type: "progetto",
                         title: "Quiz patente in python",
-                        file: "/materials/4-a/quiz_patente.pdf",
+                        file: "https://github.com/Romano-Gabriele/quiz_patente",
                     },
                 ],
             },
@@ -124,7 +124,7 @@ export const years = [
                     {
                         type: "progetto",
                         title: "Aviator",
-                        file: "/materials/4-b/aviator.pdf",
+                        file: "https://github.com/Romano-Gabriele/aviator",
                     },
                 ],
             },
@@ -161,10 +161,9 @@ export const years = [
                 image: "/images/progetto-1522.jpg",
                 materials: [
                     {
-                        type: "slides",
-                        title: "Presentazione — I principi fondamentali",
-                        file: "/materials/1-a/presentazione.pdf",
-                        date: "Ottobre 2021",
+                        type: "progetto",
+                        title: "Sito 1522",
+                        file: "https://github.com/Romano-Gabriele/sito_1522",
                     },
                 ],
             },

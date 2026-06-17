@@ -28,7 +28,7 @@
         </nav>
 
         <div class="footer-info">
-            <p class="label footer-info-title">Esame di Stato</p>
+            <p class="label footer-info-title">Esame di Maturità</p>
             <dl>
                 <dt>Anno scolastico</dt>
                 <dd>{info.examYear}</dd>

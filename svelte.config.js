@@ -14,7 +14,8 @@ const config = {
             base: process.env.NODE_ENV === 'production' ? '/portfolio' : ''
         },
 		prerender: {
-        	handleMissingId: 'warn'
+        	handleMissingId: 'warn',
+            handleHttpError: 'warn'
     	}
     }
 };
