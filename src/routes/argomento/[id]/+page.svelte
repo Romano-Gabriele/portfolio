@@ -22,10 +22,17 @@
                 <div class="materials">
                     <h3 class="label">Materiali Allegati</h3>
                     {#each project.materials as material}
-                        <a href="{base}{material.file}" target="_blank" class="material-card">
+                        {#if material.file.startsWith("https")}
+                            <a href="{material.file}" target="_blank" class="material-card">
                             <span class="type">{material.type}</span>
                             <span class="title">{material.title}</span>
-                        </a>
+                            </a>
+                        {:else}
+                            <a href="{base}{material.file}" target="_blank" class="material-card">
+                                <span class="type">{material.type}</span>
+                                <span class="title">{material.title}</span>
+                            </a>
+                        {/if}
                     {/each}
                 </div>
             {/if}

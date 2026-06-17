@@ -214,16 +214,6 @@
         transform: translateY(0);
     }
 
-    .hero-city {
-        font-family: var(--ff-mono);
-        font-size: 0.65rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        opacity: 0;
-        transition: opacity 0.7s var(--ease-out) 1s;
-    }
-
     .scroll-cue {
         margin-top: 3rem;
         display: flex;
